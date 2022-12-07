@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify-Clone</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="sidebar">
+            <ul class="left">
+                <li class="brand">
+                   
+                       <img src="spotify-img2.png" alt="Spotify">
+                       
+                    
+                </li>
+                <li>Home</li>
+                <li>About</li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="topBar">
+                <div class="dirIcons " >
+                    <i class="fa-regular fa-less-than  fa-2x "></i>
+                    <i class="fa-regular fa-greater-than  fa-2x"></i>
+                </div>
+                <div class="logSignup "
+                >
+                    <button class="signUp">Sign up</button>
+                    <button class="Login">Log in</button>
+                </div>
+            </div>
+            <div class="songList">
+                <h1>Your Mix - 1</h1>
+
+                <div class="songItemsContainer">
+                    <div class="songItems">
+                        <img src="./coverImg1.jpeg" alt="1">
+                        <span class="songName">
+                            Lose yourself
+                        </span>
+                        <span class="songListPlay">
+                            <span class="timeStamp">05:20
+                                <i class="fa-regular fa-circle-play"></i>
+                            </span>
+                           
+                        </span>
+                    </div>
+                </div>
+            </div>
+           
+           <div class="songbanner">
+
+           </div>
+           
+        </div>
+        <div class="bottom">
+            <div class="icons">
+                <i class="fa-solid fa-backward-step fa-3x"></i>
+                <i class="fa-regular fa-circle-play fa-3x" id="masterPlay"></i>
+                <i class="fa-solid fa-forward-step fa-3x"></i>
+            </div>
+            <div class="songInfo">
+                Current track
+            </div>
+            <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
+        </div>
+       
+   </div>
+   <script src="https://kit.fontawesome.com/726ba83a3c.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>  
+</body>
+</html>
