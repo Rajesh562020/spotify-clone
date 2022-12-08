@@ -39,8 +39,10 @@ nav{
     margin-left: 200px;
 }
 .container{
-    min-height: 80vh;
-    position: fixed;
+    /* min-height: 80vh; */
+    max-width: 50vw;
+    /* max-height: 100vh; */
+    position:absolute;
     /* background-image: url("./bg.jpg");
     background-repeat: no-repeat;
     background-size: contain;
@@ -98,7 +100,7 @@ nav{
     background-color: rgb(143, 129, 129);
     color: black;
     width:150px;
-    margin:12px 0;
+    margin:12px 22px;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
@@ -110,6 +112,7 @@ nav{
 }
 .songList{
     margin:20px 0;
+    padding: 60px 24px;
 }
 .timeStamp{
     margin: 0 23px;
@@ -124,7 +127,12 @@ nav{
    padding: 12px 24px;
 }
 .songItemsContainer{
-  margin-top: 50px;  
+  margin-top: 50px;
+  display: flex; 
+  justify-content:flex-start; 
+  
+  flex-wrap: wrap;
+  
 }
 .timeStamp i{
     cursor: pointer;
@@ -142,7 +150,11 @@ nav{
         height:90px;
         padding: 15px;
     }
-   
+    .container{
+        padding: 34px;
+        position:absolute;
+        
+    }
     .icons{
         margin-top: 7px;
         
@@ -158,8 +170,8 @@ nav{
         display: flex;
         background-color: rgb(143, 129, 129);
         color: black;
-        width:120px;
-        margin:12px 0;
+        width:150px;
+        margin:12px 22px;
         justify-content:space-between;
         flex-direction: column;
         align-items: center;
@@ -189,4 +201,12 @@ nav{
     .songList{
         margin:40px -90px;
     }
+    .songItemsContainer{
+        margin-top: 50px;
+        display: flex; 
+        justify-content:flex-start; 
+        
+        flex-wrap: wrap;
+        
+      }
 }

@@ -1,8 +1,13 @@
 console.log("hello");
-let audioElement = new Audio('1 copy.mp3');
+let songIndex = 0;
+let audioElement = new Audio('./songs/1.mp3');
 // audioElement.play();
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
+let songItems = Array.from(document.getElementsByClassName('songItems'));
+//console.log(songItems)
+
+//songs array
 let songs = [
     {
         songName:"song1",
@@ -56,6 +61,20 @@ let songs = [
     },
 ]
 
+//iterating songs
+
+songItems.forEach((item,i) => {
+  //console.log(item,i)
+  item.getElementsByTagName('img')[0].src = songs[i].coverPath;
+  item.getElementsByClassName('songName')[0].innerText = songs[i].songName;
+ })
+
+
+
+
+
+
+//handling the play/pause
 masterPlay.addEventListener('click',() => {
     if((audioElement.paused) || (audioElement.currentTime <= 0)){
         audioElement.play();
@@ -68,14 +87,43 @@ masterPlay.addEventListener('click',() => {
         masterPlay.classList.remove('fa-pause-circle');
     }
 })
-
+//progress bar update
 audioElement.addEventListener('timeupdate', () => {
     //console.log('timeupdte');
     progress = parseInt((audioElement.currentTime/audioElement.duration)* 100);
     //console.log(progress);
     myProgressBar.value=progress;
 })
-
+//seeking the song
 myProgressBar.addEventListener('change',() => {
     audioElement.currentTime=(myProgressBar.value*audioElement.duration)/100
+})
+
+//handle list play/pause
+const makeListSongPlays = () =>{
+    Array.from(document.getElementsByClassName('songItemPlay')).forEach((listSong)=>{
+        listSong.classList.remove('fa-circle-pause');
+        listSong.classList.add('fa-circle-play');
+
+    })  
+}
+Array.from(document.getElementsByClassName('songItemPlay')).forEach((listSong)=>{
+    listSong.addEventListener('click',(e)=>{
+        //console.log(e.target);
+        makeListSongPlays();
+        songIndex = parseInt(e.target.id);
+
+        
+        e.target.classList.remove('fa-circle-play');
+        e.target.classList.add('fa-circle-pause');
+        
+        audioElement.src = './songs/${songIndex+1}.mp3';
+        audioElement.currentTime = 0;
+        audioElement.play();
+        
+        console.log(songIndex ,typeof (songIndex));
+        masterPlay.classList.remove('fa-circle-play');
+        masterPlay.classList.add('fa-circle-pause');
+
+    })
 })
